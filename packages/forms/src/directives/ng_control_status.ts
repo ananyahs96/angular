@@ -36,27 +36,59 @@ export class AbstractControlStatus {
     }
     return !!this._cd?.control?.[status];
   }
+  
+  isTouched() {
+    return !!this._cd?.control?.touched;
+  }
+  
+  isUnTouched() {
+    return !!this._cd?.control?.untouched;
+  }
+  
+  isPristine() {
+    return !!this._cd?.control?.pristine;
+  }
+  
+  isDirty() {
+    return !!this._cd?.control?.dirty;
+  }
+  
+  isValid() {
+    return !!this._cd?.control?.valid;
+  }
+  
+  isInValid() {
+    return !!this._cd?.control?.invalid;
+  }
+  
+  isPending() {
+    return !!this._cd?.control?.pending;
+  }
+  
+  isSubmitted() {
+    return !!this._cd?.control?.submitted;
+  }
 }
 
 export const ngControlStatusHost = {
-  '[class.ng-untouched]': 'is("untouched")',
-  '[class.ng-touched]': 'is("touched")',
-  '[class.ng-pristine]': 'is("pristine")',
-  '[class.ng-dirty]': 'is("dirty")',
-  '[class.ng-valid]': 'is("valid")',
-  '[class.ng-invalid]': 'is("invalid")',
-  '[class.ng-pending]': 'is("pending")',
+  '[class.ng-untouched]': 'isUnTouched()',
+  '[class.ng-touched]': 'isTouched()',
+  '[class.ng-pristine]': 'isPristine()',
+  '[class.ng-dirty]': 'isDirty()',
+  '[class.ng-valid]': 'isValid()',
+  '[class.ng-invalid]': 'isInValid()',
+  '[class.ng-pending]': 'isSubmitted()',
 };
 
 export const ngGroupStatusHost = {
-  '[class.ng-untouched]': 'is("untouched")',
-  '[class.ng-touched]': 'is("touched")',
-  '[class.ng-pristine]': 'is("pristine")',
-  '[class.ng-dirty]': 'is("dirty")',
-  '[class.ng-valid]': 'is("valid")',
-  '[class.ng-invalid]': 'is("invalid")',
-  '[class.ng-pending]': 'is("pending")',
-  '[class.ng-submitted]': 'is("submitted")',
+  '[class.ng-untouched]': 'isUnTouched()',
+  '[class.ng-touched]': 'isTouched()',
+  '[class.ng-pristine]': 'isPristine()',
+  '[class.ng-dirty]': 'isDirty()',
+  '[class.ng-valid]': 'isValid()',
+  '[class.ng-invalid]': 'isInValid()',
+  '[class.ng-pending]': 'isPending()',
+  '[class.ng-submitted]': 'isSubmitted()',
 };
 
 /**
